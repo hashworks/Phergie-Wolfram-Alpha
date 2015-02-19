@@ -16,6 +16,7 @@ use Phergie\Irc\Plugin\React\Command\CommandEvent as Event;
 class Plugin extends AbstractPlugin {
 
 	protected $appid = '';
+	protected $limit = 5;
 	protected $useMetric = true;
 	protected $processingReply = true;
 
@@ -23,8 +24,9 @@ class Plugin extends AbstractPlugin {
 
 	public function __construct($config = array()) {
 		if (isset($config['appid'])) $this->appid = $config['appid'];
-		if (isset($config['useMetric'])) $this->useMetric = $config['useMetric'];
-		if (isset($config['processingReply'])) $this->processingReply = $config['processingReply'];
+		if (isset($config['useMetric'])) $this->useMetric = boolval($config['useMetric']);
+		if (isset($config['processingReply'])) $this->processingReply = boolval($config['processingReply']);
+		if (isset($config['limit'])) $this->limit = intval($config['limit']);
 	}
 
 	/**
@@ -105,7 +107,7 @@ class Plugin extends AbstractPlugin {
 										}, $plaintext);
 										$plaintext = str_replace('  ', ' ', $plaintext);
 										if (!empty($plaintext)) {
-											$this->sendReply($event, $queue, explode("\n", $plaintext));
+											$this->sendReply($event, $queue, array_splice(explode("\n", $plaintext), $this->limit));
 											return;
 										}
 									}

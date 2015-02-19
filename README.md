@@ -20,8 +20,9 @@ See Phergie documentation for more information on
 new \Phergie\Irc\Plugin\React\Command\Plugin,
 new \hashworks\Phergie\Plugin\WolframAlpha\Plugin(array(
     'appid' => 'your-app-id', // Required. Set your appID. https://developer.wolframalpha.com/portal/apisignup.html
-    'useMetric' => true // Default. Use metric system for results.
-    'processingReply' => true // Default. Show or hide the 'Processing ...' reply.
+    'useMetric' => true, // Default. Use metric system for results.
+    'processingReply' => true, // Default. Show or hide the 'Processing ...' reply.
+    'limit' => 5// Default. Limit the number of lines send to a channel or user.
 )),
 ```
 
