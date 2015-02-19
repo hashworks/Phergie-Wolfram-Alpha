@@ -107,7 +107,9 @@ class Plugin extends AbstractPlugin {
 										}, $plaintext);
 										$plaintext = str_replace('  ', ' ', $plaintext);
 										if (!empty($plaintext)) {
-											$this->sendReply($event, $queue, array_splice(explode("\n", $plaintext), $this->limit));
+											$texts = explode("\n", $plaintext);
+											array_splice($texts, $this->limit);
+											$this->sendReply($event, $queue, $texts);
 											return;
 										}
 									}
