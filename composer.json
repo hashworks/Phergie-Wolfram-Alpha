@@ -2,9 +2,9 @@
     "name": "hashworks/phergie-plugin-wolfram-alpha",
     "description": "Phergie plugin to access the Wolfram Alpha API trough IRC.",
     "keywords": [ "phergie", "irc", "bot", "plugin", "wolfram", "alpha" ],
-    "license": "GNU GPL v3.0",
+    "license": "GPL-3.0-or-later",
     "support": {
-        "email": "admin@hashworks.net",
+        "email": "mail@hashworks.net",
         "irc": "irc://irc.freenode.net/phergie",
         "issues": "https://github.com/hashworks/PhergieWolframAlpha/issues",
         "source": "https://github.com/hashworks/PhergieWolframAlpha"
